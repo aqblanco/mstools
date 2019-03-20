@@ -5,6 +5,7 @@ import { style } from "../assets/styles";
 
 export async function extract(argv: Argv): Promise<any> {
     return new Promise ((resolve, reject) => {
+        process.env["NODE_CONFIG_DIR"] = resolveP(__dirname + "../../../config/");
         let config = require('config');
         let opt: any = (argv as any);
         let parsedPath = parse(opt.file);
