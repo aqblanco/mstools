@@ -5,7 +5,7 @@ Time saving shortcuts for common operations on my media server. It will allow th
 ## Installation:
 `$ git clone git@github.com:aqblanco/mstools.git`
 
-`$ npm install`
+`$ npm -g install`
 
 For it to work you will also need a configuration file named */default.json* created under a */config/* directory on the project root, using the following template:
 
