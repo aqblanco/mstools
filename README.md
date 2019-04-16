@@ -7,7 +7,7 @@ Time saving shortcuts for common operations on my media server. It will allow th
 
 `$ cd mstools/`
 
-`$ npm -g install`
+`$ npm install`
 
 `$ gulp`
 
@@ -20,9 +20,13 @@ For it to work you will also need a configuration file named */default.json* cre
         "group": "groupname",
         "permissions": "774",
         "outputBaseDir": "../test/"
+    },
+    "Plex": {
+        "authToken": "yourPlexToken"
     }
 }
 ```
+Note that Plex auth token is only necessary in order to update music libraries when finished an extraction.
 
 ## Basic Usage:
 
