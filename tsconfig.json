@@ -6,6 +6,7 @@
     "src/classes/AlbumDirectory.class.ts",
     "src/classes/CompressedFileHandler.class.ts",
     "src/classes/SevenZip.class.ts",
+    "src/classes/Plex.class.ts",
     "src/commands/extract.command.ts",
     "src/cmdHandlers/extract.handler.ts",
     "src/assets/styles.ts",

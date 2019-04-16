@@ -2,6 +2,7 @@ import { parse, resolve as resolveP } from "path"
 import { Argv } from "yargs";
 import { AlbumFile } from "../classes/AlbumFile.class";
 import { style } from "../assets/styles";
+import { Plex } from "../classes/Plex.class";
 
 export async function extract(argv: Argv): Promise<any> {
     return new Promise ((resolve, reject) => {
@@ -42,11 +43,36 @@ export async function extract(argv: Argv): Promise<any> {
             return albumDir.setPermissions(perm);
         }).then((albumDir) => {
             console.log(style.prompt('> ') + style.folder(resolveP(albumDir.$dPath)) + " " + style.keyword("permissions") + " changed to " + style.value(perm));
-            console.log(style.prompt('> ') + "Album added correctly!");
+            // Try to update Plex library
+            return updatePlexLib();
+        })
+        .then((result) => {
+            if (result) {
+                console.log(result);
+                console.log(style.prompt('> ') + "Album added correctly!");
+            }
         })
         .catch((e) => {
             console.log(style.error("Something went wrong: ") + e.message);
         });
         resolve();
+    });
+}
+
+function updatePlexLib() : Promise<any> {
+    let config = require('config');
+    return new Promise((resolve, reject) => {
+        if (config.has('Plex.authToken')) {
+            let plexAuthToken = config.get('Plex.authToken');
+            let plex = new Plex("PlexPi", plexAuthToken);
+            plex.updateLibray().then((result) => {
+                resolve(style.prompt('> ') + "Plex Music Library updated.");
+            })
+            .catch((e) => {
+                reject(e);
+            });
+        } else {
+            resolve(null);
+        }
     });
 }

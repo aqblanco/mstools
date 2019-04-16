@@ -28,7 +28,10 @@
     "@types/yargs": "^12.0.9",
     "chalk": "^2.4.2",
     "config": "^3.0.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
     "userid": "^0.3.1",
+    "xml2js-es6-promise": "^1.1.1",
     "yargonaut": "^1.1.4",
     "yargs": "^12.0.5"
   }
