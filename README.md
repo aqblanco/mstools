@@ -1,4 +1,5 @@
 # Media Server Tools
+[![Maintainability](https://api.codeclimate.com/v1/badges/f8bebf9e190c45c29451/maintainability)](https://codeclimate.com/github/aqblanco/mstools/maintainability)
 
 Time saving shortcuts for common operations on my media server. It will allow the extraction, permissions and owner change and name cleaning of a zipped album using a single command. Right now it's only working with a very concrete naming pattern.
 
