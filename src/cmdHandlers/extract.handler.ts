@@ -66,7 +66,7 @@ function updatePlexLib() : Promise<any> {
             let plexAuthToken = config.get('Plex.authToken');
             let plex = new Plex("PlexPi", plexAuthToken);
             plex.updateLibray().then((result) => {
-                resolve(style.prompt('> ') + "Plex Music Library updated.");
+                resolve(style.prompt('> ') + "Plex Music Library update triggered.");
             })
             .catch((e) => {
                 reject(e);
