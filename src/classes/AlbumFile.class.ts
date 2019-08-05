@@ -66,7 +66,7 @@ export class AlbumFile {
      * @returns 
      */
     public getAlbumInfo(): Promise<Album> {
-        const regex = /((?:[\wÀ-ÿ\.()'!]+(?:\b-\b)?[\wÀ-ÿ\.()'!]+(?:\b \b)?)+)(?: - ){1}([\wÀ-ÿ\.\s()'!\[\]-]+)(?: - )([0-9]{4}) OHM/g;
+        const regex = /((?:[\wÀ-ÿ\.,()'!]+(?:[,\.](?: )?)?(?:\b[-]\b)?[\wÀ-ÿ\.,()'!]+(?:\b \b)?)+)(?: - ){1}([\wÀ-ÿ\.,\s()'!\[\]-]+)(?:[,\.](?: )?)?(?: - )([0-9]{4}) OHM/g;
         let album: Album | null = null;
         let m;
         let fName = this.fName;
