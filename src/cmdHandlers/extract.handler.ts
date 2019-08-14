@@ -80,13 +80,13 @@ function updateParentFolder(path: string, perm: number | string, user: string, g
     const chown = require('chown');*/
 
     return new Promise((resolve, reject) => {
-        chmod(path, perm, (e: Error) => {
+        chmod(path, perm, (e: any) => {
             if (e) reject(e);
             else {
                 let userid = require('userid');
                 let uid = userid.uid(user);
                 let gid = userid.gid(group);
-                chown(path, uid, gid, (e: Error) => {
+                chown(path, uid, gid, (e: any) => {
                     if (e) reject(e);
                     resolve(null);
                 });
