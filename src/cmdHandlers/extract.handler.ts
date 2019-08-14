@@ -76,8 +76,8 @@ export async function extract(argv: Argv): Promise<any> {
 }
 
 function updateParentFolder(path: string, perm: number | string, user: string, group: string) : Promise<any> {
-    const chmod = require('chmod');
-    const chown = require('chown');
+    /*const chmod = require('chmod');
+    const chown = require('chown');*/
 
     return new Promise((resolve, reject) => {
         chmod(path, perm, (e: Error) => {
