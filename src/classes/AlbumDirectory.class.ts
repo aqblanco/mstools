@@ -61,11 +61,12 @@ export class AlbumDirectory {
      * @returns Promise 
      */
     public setPermissions(perm: number | string): Promise<AlbumDirectory> {
+        var chmodr = require('chmodr');
 
         let dPath = this.dPath;
         let ad = this;
         return new Promise((resolve, reject) => {
-            chmod(dPath, perm, (e: Error) => {
+            chmodr(dPath, perm, (e: Error) => {
                 if (e) reject(e);
                 resolve(ad);
             })
@@ -79,6 +80,7 @@ export class AlbumDirectory {
      * @returns Promise 
      */
     public changeOwner(user: string, group: string): Promise<AlbumDirectory> {
+        var chownr = require('chownr');
 
         let dPath = this.dPath;
         let ad = this;
@@ -86,7 +88,7 @@ export class AlbumDirectory {
             let userid = require('userid');
             let uid = userid.uid(user);
             let gid = userid.gid(group);
-            chown(dPath, uid, gid, (e: Error) => {
+            chownr(dPath, uid, gid, (e: Error) => {
                 if (e) reject(e);
                 resolve(ad);
             })
