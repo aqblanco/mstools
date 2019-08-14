@@ -101,8 +101,7 @@ export class AlbumFile {
 
         return new Promise((resolve, reject) => {
             this.getAlbumInfo().then((album) => {
-                //let outputFName = album.$artist + ' - ' + album.$title + ' - ' + album.$year;
-                let extractPath = path.join(outputPath, album.$artist/*, outputFName*/);
+                let extractPath = path.join(outputPath, album.$artist);
                 let cfh = new CompressedFileHandler(this.$extension);
                 return cfh.getStrategy().extract(file, extractPath);
             })

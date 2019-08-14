@@ -61,7 +61,7 @@ export class AlbumDirectory {
      * @returns Promise 
      */
     public setPermissions(perm: number | string): Promise<AlbumDirectory> {
-        var chmodr = require('chmodr');
+        const chmodr = require('chmodr');
 
         let dPath = this.dPath;
         let ad = this;
@@ -80,7 +80,7 @@ export class AlbumDirectory {
      * @returns Promise 
      */
     public changeOwner(user: string, group: string): Promise<AlbumDirectory> {
-        var chownr = require('chownr');
+        const chownr = require('chownr');
 
         let dPath = this.dPath;
         let ad = this;
