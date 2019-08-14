@@ -3,7 +3,7 @@ import { Argv } from "yargs";
 import { AlbumFile } from "../classes/AlbumFile.class";
 import { style } from "../assets/styles";
 import { Plex } from "../classes/Plex.class";
-import { fstat } from "fs";
+import { chmod, chown } from "fs";
 
 export async function extract(argv: Argv): Promise<any> {
     return new Promise ((resolve, reject) => {

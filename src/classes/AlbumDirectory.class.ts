@@ -1,4 +1,4 @@
-import { chmod, chown, open, rename } from "fs";
+import { rename } from "fs";
 
 export class AlbumDirectory {
     // Post-extraction directory
