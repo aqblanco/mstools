@@ -45,10 +45,14 @@ export async function extract(argv: Argv): Promise<any> {
         }).then((albumDir) => {
             console.log(style.prompt('> ') + style.file(parsedPath.base) + " " + style.keyword("extracted") + " to " + style.folder(resolveP(albumDir.$dPath)));
             if (!parentExists) {
-                updateParentFolder(extractPath, perm, user, group);
+                return updateParentFolder(extractPath, perm, user, group).then(() => {
+                    // Clean up file name from possible tags
+                    return albumDir.cleanUpAlbumTitle();
+                });
+            } else {
+                // Clean up file name from possible tags
+                return albumDir.cleanUpAlbumTitle();
             }
-            // Clean up file name from possible tags
-            return albumDir.cleanUpAlbumTitle();
         }).then((albumDir) => {
             console.log(style.prompt('> ') + "Album folder renamed to " + style.folder(resolveP(albumDir.$dPath)));
             // Try to change file owner

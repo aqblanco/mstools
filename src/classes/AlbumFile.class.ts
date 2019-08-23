@@ -100,26 +100,32 @@ export class AlbumFile {
         let file = path.join(this.fPath, this.fName);
 
         return new Promise((resolve, reject) => {
+            let extractPath = "";
             this.getAlbumInfo().then((album) => {
-                let extractPath = path.join(outputPath, album.$artist);
+                extractPath = path.join(outputPath, album.$artist);
                 let cfh = new CompressedFileHandler(this.$extension);
                 return cfh.getStrategy().extract(file, extractPath);
             })
-            .then((extractPath) => {
-                // Try to find extracted directory
-                readdir(extractPath, (err, l) => {
-                    if (err) {
-                        reject(err);
-                    } else {
-                        let f = path.parse(file).name;
-                        l.forEach((e) => {
-                            if (f == e) {
-                                extractPath = path.join(extractPath, e);
-                            }
-                        });
-                        resolve(new AlbumDirectory(extractPath));
-                    }
-                });               
+            .then((extractedF) => {
+                if (extractedF === null) {
+                    // Try to manually find extracted directory
+                    readdir(extractPath, (err, l) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            let f = path.parse(file).name;
+                            l.forEach((e) => {
+                                if (f == e) {
+                                    
+                                }
+                            });
+                            resolve(new AlbumDirectory(extractedF));
+                        }
+                    });  
+                } else {
+                    extractedF = path.join(extractPath, extractedF);
+                    resolve(new AlbumDirectory(extractedF));
+                }           
             })
             .catch((e) => {
                 reject(e);
