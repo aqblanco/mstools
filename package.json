@@ -1,6 +1,6 @@
 {
   "name": "media-server-tools",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Time saving shortcuts for common operations on my media server.",
   "main": "main.js",
   "scripts": {
