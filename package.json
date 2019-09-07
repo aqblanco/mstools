@@ -18,7 +18,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "7zip-min": "github:aqblanco/7zip-min",
+    "7zip-min": "^1.1.0",
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/polyfill": "^7.4.4",
