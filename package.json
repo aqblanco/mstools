@@ -15,14 +15,14 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.6.3"
   },
   "dependencies": {
     "7zip-min": "^1.1.0",
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
-    "@babel/polyfill": "^7.4.4",
-    "@types/node": "^10.14.16",
+    "@babel/polyfill": "^7.6.0",
+    "@types/node": "^10.14.18",
     "@types/yargs": "^12.0.12",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
